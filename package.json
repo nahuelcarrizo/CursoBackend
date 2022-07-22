@@ -1,0 +1,30 @@
+{
+  "name": "cursobackend",
+  "version": "1.0.0",
+  "description": "curso backend",
+  "main": "dist/clase2.js",
+  "scripts": {
+    "start": "tsc && node src/clase2.ts ",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nahuelcarrizo/CursoBackend.git"
+  },
+  "keywords": [
+    "[]"
+  ],
+  "author": "\"\"",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nahuelcarrizo/CursoBackend/issues"
+  },
+  "homepage": "https://github.com/nahuelcarrizo/CursoBackend#readme",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "ts-node": "^10.9.1"
+  },
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
