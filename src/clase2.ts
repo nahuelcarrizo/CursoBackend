@@ -63,4 +63,4 @@ console.log(usuario1.getFullName()); */
 
 console.log(usuario1.getBookNames());
 console.log(usuario1.countMascotas());
-console.log(usuario1.getFullName());
+console.log(usuario1.getBookNames());
