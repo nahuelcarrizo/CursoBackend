@@ -1,24 +1,28 @@
 const express = require("express");
-const moment = require("moment");
-const Productos = require("./Productos");
+const Producto = require("./Producto");
 
 const app = express();
 const PORT = 8080;
+const productos = new Producto("./productos.txt");
 
 //configuro las peticiones
 app.get("/", (req, res) =>
   res.send(`<h1 style="color:blue;">Bienvenidos al servidor express</h1>`)
 );
 
-app.get("/productos", (req, res) => {
-  //invoco la clase en prods
-  const prods = new Productos();
-  res.send(
-    prods
-      .getArray()
-      .map((producto) => producto.nombre)
-      .join(", ")
-  );
+app.get("/productos", async (req, res) => {
+  const mostrarProductos = await productos.getAll();
+  res.send(mostrarProductos);
+});
+
+app.get("/productoRandom", async (req, res) => {
+  const productosAll = await productos.getAll();
+  const pickRandom = () => {
+    const nro = Math.ceil(Math.random() * 3);
+    const productoElegido = productosAll.filter((el) => el.id == nro);
+    return productoElegido;
+  };
+  res.send(pickRandom());
 });
 
 //configuro el puerto al que escucha el servidor
