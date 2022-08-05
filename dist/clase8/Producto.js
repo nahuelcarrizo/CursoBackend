@@ -6,6 +6,7 @@ class Producto {
   }
   async save(obj) {
     try {
+      console.log(obj);
       let data = await fs.promises.readFile(this.url, "utf-8");
       let dataParse = JSON.parse(data);
       if (dataParse.length) {
@@ -26,9 +27,9 @@ class Producto {
           JSON.stringify([{ ...obj, id: 1 }], null, 2)
         );
       }
-      /* console.log(
+      console.log(
         `El archivo tiene el id: ${dataParse[dataParse.length - 1].id + 1}`
-      ); */
+      );
     } catch (error) {
       console.log(error);
     }
@@ -37,11 +38,11 @@ class Producto {
     try {
       const data = await fs.promises.readFile("./productos.txt", "utf-8");
       const dataParse = JSON.parse(data);
-      const product = dataParse.find((obj) => obj.id === id);
+      console.log(dataParse);
+      console.log(id);
+      const product = dataParse.find((obj) => obj.id == id);
       if (product) {
         return product;
-      } else {
-        console.log(`no se encontró el producto`);
       }
     } catch (error) {}
   }

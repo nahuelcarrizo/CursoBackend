@@ -1,28 +1,29 @@
 const express = require("express");
 const Producto = require("./Producto");
+const { Router } = express;
 
 const app = express();
 const PORT = 8080;
+const routerProductos = Router();
+const routerProductosRandom = Router();
 const productos = new Producto("./productos.txt");
 
-//configuro las peticiones
+//configuro las peticiones para productos
 app.get("/", (req, res) =>
   res.send(`<h1 style="color:blue;">Bienvenidos al servidor express</h1>`)
 );
 
-app.get("/productos", async (req, res) => {
+routerProductos.get("/", async (req, res) => {
   const mostrarProductos = await productos.getAll();
   res.send(mostrarProductos);
 });
+/* routerProductos.post('/', ()=>{}) */
+
+app.use("/productos/", routerProductos);
 
 app.get("/productoRandom", async (req, res) => {
-  const productosAll = await productos.getAll();
-  const pickRandom = () => {
-    const nro = Math.ceil(Math.random() * 3);
-    const productoElegido = productosAll.filter((el) => el.id == nro);
-    return productoElegido;
-  };
-  res.send(pickRandom());
+  const producto = await productos.getById(Math.ceil(Math.random() * 3));
+  res.send(producto);
 });
 
 //configuro el puerto al que escucha el servidor

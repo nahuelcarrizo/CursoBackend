@@ -1,6 +1,6 @@
 [
   {
-    "nombre": "Escuadra",
+    "title": "Escuadra",
     "price": 150,
     "id": 1
   },
