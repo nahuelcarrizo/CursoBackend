@@ -8,6 +8,7 @@ const routerProductos = Router();
 const productos = new Producto("./productos.txt");
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use("/static", express.static(__dirname + "/public"));
 
 routerProductos.get("/productos/", async (req, res) => {
@@ -17,9 +18,9 @@ routerProductos.get("/productos/", async (req, res) => {
 
 routerProductos.post("/productos/", async (req, res) => {
   const { title, price } = await req.body;
-  const producto = await productos.save(req.body);
+  productos.save(req.body);
 
-  res.json({ status: "todo ok", title: title, price: price });
+  res.json({ status: "todo ok", title, price });
 });
 
 routerProductos.get("/productos/:id", async (req, res) => {
