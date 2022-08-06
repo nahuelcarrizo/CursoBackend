@@ -13,10 +13,5 @@
     "title": "Globo Terraqueo",
     "price": 350,
     "id": 3
-  },
-  {
-    "title": "Regla",
-    "price": "100",
-    "id": 4
   }
 ]

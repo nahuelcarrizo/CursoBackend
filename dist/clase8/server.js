@@ -23,6 +23,12 @@ routerProductos.post("/productos/", async (req, res) => {
   res.json({ status: "todo ok", title, price });
 });
 
+routerProductos.put("/productos/:id", async (req, res) => {
+  productos.updateById(req.body);
+
+  res.status(200).json({ status: "archivo actualizado" });
+});
+
 routerProductos.get("/productos/:id", async (req, res) => {
   const { id } = await req.params;
   const producto = await productos.getById(id);

@@ -21,15 +21,16 @@ class Producto {
             2
           )
         );
+        return "cargado";
       } else {
         await fs.promises.writeFile(
           this.url,
           JSON.stringify([{ ...obj, id: 1 }], null, 2)
         );
       }
-      console.log(
+      /* console.log(
         `El archivo tiene el id: ${dataParse[dataParse.length - 1].id + 1}`
-      );
+      ); */
     } catch (error) {
       console.log(error);
     }
@@ -88,6 +89,31 @@ class Producto {
 
   async deleteAll() {
     await fs.promises.writeFile(this.url, JSON.stringify([], null, 2), "utf-8");
+  }
+
+  async updateById(obj) {
+    // [].length = 0 => false , pread ...[] o {} -> copio al contenido
+    try {
+      const data = await fs.promises.readFile(this.url, "utf-8");
+      const dataParse = JSON.parse(data);
+
+      const objIndex = dataParse.findIndex((prod) => prod.id === obj.id); // -1 o la posicion del objeto
+
+      if (objIndex !== -1) {
+        // Existe
+        dataParse[objIndex] = obj; // => array[1] -> {}
+        await fs.promises.writeFile(
+          this.ruta,
+          JSON.stringify(dataParse, null, 2)
+        );
+        return { msg: "actualizado el producto" };
+      } else {
+        // no existe
+        return { error: "no existe el producto" };
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
 
