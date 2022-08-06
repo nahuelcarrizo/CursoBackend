@@ -97,13 +97,13 @@ class Producto {
       const dataParse = JSON.parse(data);
 
       const objIndex = dataParse.findIndex((prod) => prod.id === obj.id);
-
       if (objIndex !== -1) {
         dataParse[objIndex] = obj; // => array[1] -> {}
         await fs.promises.writeFile(
-          this.ruta,
+          this.url,
           JSON.stringify(dataParse, null, 2)
         );
+        console.log("actualizado");
         return { msg: "actualizado el producto" };
       } else {
         return { error: "no existe el producto" };

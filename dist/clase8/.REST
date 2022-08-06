@@ -1,7 +1,8 @@
-POST http://localhost:8080/api/productos HTTP/1.1
+PUT http://localhost:8080/api/productos/1 HTTP/1.1
 Content-Type: application/json
 
 {
-    "title": "Compas",
-    "price": 110
+    "title": "Escuadra",
+    "price": 200,
+    "id": 1
 }
