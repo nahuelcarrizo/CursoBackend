@@ -11,25 +11,26 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/static", express.static(__dirname + "/public"));
 
-routerProductos.get("/productos/", async (req, res) => {
+routerProductos.get("/", async (req, res) => {
   const mostrarProductos = await productos.getAll();
   res.json(mostrarProductos);
 });
 
-routerProductos.post("/productos/", async (req, res) => {
-  const { title, price } = await req.body;
+routerProductos.post("/", async (req, res) => {
+  const { title, price, thumbnail } = await req.body;
   productos.save(req.body);
 
-  res.json({ status: "todo ok", title, price });
+  res.json({ status: "todo ok", title, price, thumbnail });
 });
 
-routerProductos.put("/productos/:id", async (req, res) => {
+routerProductos.put("/:id", async (req, res) => {
+  const { id } = await req.params;
   productos.updateById(req.body);
 
   res.status(200).json({ status: "archivo actualizado" });
 });
 
-routerProductos.get("/productos/:id", async (req, res) => {
+routerProductos.get("/:id", async (req, res) => {
   const { id } = await req.params;
   const producto = await productos.getById(id);
   if (producto) {
@@ -39,7 +40,7 @@ routerProductos.get("/productos/:id", async (req, res) => {
   }
 });
 
-app.use("/api", routerProductos);
+app.use("/api/productos", routerProductos);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

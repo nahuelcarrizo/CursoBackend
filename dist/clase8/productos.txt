@@ -13,5 +13,16 @@
     "title": "Globo Terraqueo",
     "price": 350,
     "id": 3
+  },
+  {
+    "title": "Escuadra",
+    "price": "150",
+    "id": 4
+  },
+  {
+    "title": "Mapa",
+    "price": "25",
+    "thumbnail": "/mapa.jpeg",
+    "id": 5
   }
 ]

@@ -92,15 +92,13 @@ class Producto {
   }
 
   async updateById(obj) {
-    // [].length = 0 => false , pread ...[] o {} -> copio al contenido
     try {
       const data = await fs.promises.readFile(this.url, "utf-8");
       const dataParse = JSON.parse(data);
 
-      const objIndex = dataParse.findIndex((prod) => prod.id === obj.id); // -1 o la posicion del objeto
+      const objIndex = dataParse.findIndex((prod) => prod.id === obj.id);
 
       if (objIndex !== -1) {
-        // Existe
         dataParse[objIndex] = obj; // => array[1] -> {}
         await fs.promises.writeFile(
           this.ruta,
@@ -108,7 +106,6 @@ class Producto {
         );
         return { msg: "actualizado el producto" };
       } else {
-        // no existe
         return { error: "no existe el producto" };
       }
     } catch (error) {
