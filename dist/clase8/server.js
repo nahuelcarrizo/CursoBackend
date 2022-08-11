@@ -45,14 +45,7 @@ routerProductos.get("/:id", async (req, res) => {
 routerProductos.delete("/:id", async (req, res) => {
   await console.log("DELETE");
   try {
-    const { id } = await req.params;
-    const producto = productos.deletById(id);
-    console.log(producto);
-    res.json({
-      status: "ok",
-      mensajes: "delete",
-      id,
-    });
+    const producto = productos.deletById(req, res);
   } catch (error) {
     console.log(error);
   }
