@@ -76,12 +76,10 @@ class Producto {
           JSON.stringify(dataParsefiltered),
           "utf-8"
         );
-        console.log("producto eliminado");
+        return "producto eliminado";
       } else {
         console.log("no existe el producto");
       }
-
-      console.log(dataParse);
     } catch (error) {
       console.log(error);
     }

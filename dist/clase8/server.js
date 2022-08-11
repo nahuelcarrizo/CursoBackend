@@ -24,19 +24,37 @@ routerProductos.post("/", async (req, res) => {
 });
 
 routerProductos.put("/:id", async (req, res) => {
-  const { id } = await req.params;
   productos.updateById(req.body);
-
   res.status(200).json({ status: "archivo actualizado" });
 });
 
 routerProductos.get("/:id", async (req, res) => {
-  const { id } = await req.params;
-  const producto = await productos.getById(id);
-  if (producto) {
-    res.json(producto);
-  } else {
-    res.status(404).send({ error: "Producto no encontrado" });
+  try {
+    const { id } = await req.params;
+    const producto = await productos.getById(id);
+    if (producto) {
+      res.json(producto);
+    } else {
+      res.status(404).send({ error: "Producto no encontrado" });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+routerProductos.delete("/:id", async (req, res) => {
+  await console.log("DELETE");
+  try {
+    const { id } = await req.params;
+    const producto = productos.deletById(id);
+    console.log(producto);
+    res.json({
+      status: "ok",
+      mensajes: "delete",
+      id,
+    });
+  } catch (error) {
+    console.log(error);
   }
 });
 
