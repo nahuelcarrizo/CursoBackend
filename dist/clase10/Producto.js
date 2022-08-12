@@ -21,12 +21,14 @@ class Producto {
             2
           )
         );
+        return "cargado";
       } else {
         await fs.promises.writeFile(
           this.url,
           JSON.stringify([{ ...obj, id: 1 }], null, 2)
         );
       }
+      return dataParse;
     } catch (error) {
       console.log(error);
     }
@@ -91,7 +93,6 @@ class Producto {
   async updateById(obj) {
     try {
       const data = await fs.promises.readFile(this.url, "utf-8");
-      /* Parsing the data from the file into a JSON object. */
       const dataParse = JSON.parse(data);
 
       const objIndex = dataParse.findIndex((prod) => prod.id === obj.id);

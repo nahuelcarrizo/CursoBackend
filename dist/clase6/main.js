@@ -5,7 +5,6 @@ const { Router } = express;
 const app = express();
 const PORT = 8080;
 const routerProductos = Router();
-const routerProductosRandom = Router();
 const productos = new Producto("./productos.txt");
 
 //configuro las peticiones para productos
