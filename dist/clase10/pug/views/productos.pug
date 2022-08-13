@@ -1,0 +1,16 @@
+html   
+    head    
+        link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
+        title='Pug'
+    body(class="container mt-2") 
+a(href="./")='Volver al Formulario'
+    if prods
+        div(class="card-deck")
+            each val in prods
+                div(class="card")
+                    img(class="card-img-top w-50" src=val.url alt="Card image cap")
+                    div(class="card-body")
+                        h5(class="card-title")= title
+                        p(class="card-text")="Precio: $" + val.price  
+    else
+        h2="No hay productos cargados"
