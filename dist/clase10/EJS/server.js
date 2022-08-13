@@ -1,19 +1,17 @@
 const express = require("express");
-const Producto = require("../Producto");
 const app = express();
 const { Router } = express;
-const PORT = 4000 || process.env.PORT;
+const PORT = process.env.PORT || 4000;
 const routerProductos = Router();
+const Producto = require("../Producto");
 const productos = new Producto("../productos.txt");
-
-const pug = require("pug");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/api/productos", routerProductos);
 
-app.set("views", "./views");
-app.set("view engine", "pug");
+app.set("view engine", "ejs");
+app.set("views", "./views/layouts");
 
 routerProductos.get("/", (req, res) => {
   res.render("index");
@@ -21,12 +19,12 @@ routerProductos.get("/", (req, res) => {
 
 routerProductos.get("/listaproductos/", async (req, res) => {
   const prods = await productos.getAll();
-  res.render("productos", { prods: prods });
+  res.render("products", { prods: prods });
 });
 
 routerProductos.post("/", async (req, res) => {
   productos.save(req.body);
-  res.status(200).render("index");
+  res.status(200).render("/layouts/index");
 });
 
 app.listen(PORT, () => {

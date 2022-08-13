@@ -32,7 +32,6 @@ routerProductos.get("/", (req, res) => {
 
 routerProductos.get("/listaproductos/", async (req, res) => {
   const prods = await productos.getAll();
-  console.log(prods);
   res.render("productos", { prods: prods });
 });
 

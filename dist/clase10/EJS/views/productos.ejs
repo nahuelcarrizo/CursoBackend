@@ -1,0 +1,17 @@
+<a href="./">Volver al Formulario</a>
+<% if (prods) { %>
+<div class="card-deck">
+  <% prods.forEach(el => { %>
+  <div class="card">
+    <img class="card-img-top w-50" src="<%" ="el.url" % /> alt="Card image
+    cap"/>
+    <div class="card-body">
+      <h5 class="card-title"><%=el.title %></h5>
+      <p class="card-text">Precio: $ <%=el.price %></p>
+    </div>
+  </div>
+  <% }) %>
+</div>
+<% } else { %>
+<h2>No hay productos cargados</h2>
+<% } >
