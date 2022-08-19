@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="../../index.css" />
+    <title>WebSocket</title>
+  </head>
+  <body class="container-fluid">
+    <div class="row justify-content-center mt-5">
+      <div class="col-lg-5 col-md-12"><%- include('../form.ejs') %></div>
+      <div class="col-lg-3 col-md-12 chatContainer">
+        <%- include('../chat.ejs') %>
+      </div>
+      <div class="card-deck col-lg-8 col-md-12 mt-3 mb-3"></div>
+      <script src="../../index.js"></script>
+    </div>
+  </body>
+</html>
