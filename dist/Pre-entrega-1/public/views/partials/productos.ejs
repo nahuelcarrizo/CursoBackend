@@ -1,0 +1,22 @@
+
+<section class="mx-5 my-2 row overflow-hidden">
+<% if (prods) { %>
+  <h1 class="mt-5">Lista de productos</h1>
+<div class="row mt-5 justify-content-around">
+  <% prods.forEach(el => { %>
+  <div class="col-3 card my-1 mx-1">  
+    <img class="card-img-top" src=<%=el.url %></img>
+    <div class="card-body">
+      <h5 class="card-title"><%=el.title %></h5>
+      <p class="card-text">Precio: $ <%=el.price %></p>
+      <form onsubmit="http://localhost:8080/api/productos/listaproductos" method="post">
+        <button name="id" type="submit" value="<%=el.id%>">Comprar</button>
+      </form>
+    </div>
+  </div>
+  <% }) %>
+</div>
+<% } else { %>
+<h2>No hay productos cargados</h2>
+<% } %>
+</section>

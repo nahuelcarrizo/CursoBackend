@@ -1,0 +1,83 @@
+<section class="mx-5 my-5 row overflow-hidden">
+  <div class="col-6 m-0 p-0 pr-2 h-100">
+    <img src="../../manifiesto-2.jpg" class="img-fluid w-100" />
+  </div>
+  <form
+    class="col-6 bg-secondary w-100"
+    onsubmit="http://localhost:8080/api/productos/"
+    method="post"
+  >
+    <div
+      class="d-flex flex-column align-items-center justify-content-center flex-grow-1 mx-3 mt-2"
+    >
+      <div class="form-group col mb-0 mt-2">
+        <h2 class="ml-3 text-white">Ingrese el producto</h2>
+        <label for="inputNombre" class="col-sm-2 col-form-label text-white"
+          >Nombre</label
+        >
+        <div class="col-sm-10">
+          <input
+            type="text"
+            class="form-control"
+            id="inputNombre"
+            name="title"
+          />
+        </div>
+      </div>
+      <div class="form-group col mb-0">
+        <label for="inputNombre" class="col-sm-2 col-form-label text-white"
+          >Descripción</label
+        >
+        <div class="col-sm-10">
+          <input
+            type="text"
+            class="form-control"
+            id="inputdescripcion"
+            name="description"
+          />
+        </div>
+      </div>
+      <div class="form-group col mb-0">
+        <label for="inputUrl" class="col-sm-3 col-form-label text-white"
+          >Foto URL</label
+        >
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputUrl" name="url" />
+        </div>
+      </div>
+      <div class="form-group col mb-0">
+        <label for="inputPrecio" class="col-sm-2 col-form-label text-white"
+          >Precio</label
+        >
+        <div class="col-sm-10">
+          <input
+            type="number"
+            class="form-control"
+            id="inputPrecio"
+            name="price"
+          />
+        </div>
+      </div>
+      <div class="form-group col mb-2">
+        <label for="inputStock" class="col-sm-2 col-form-label text-white"
+          >Stock</label
+        >
+        <div class="col-sm-10">
+          <input
+            type="number"
+            class="form-control"
+            id="inputStock"
+            name="stock"
+          />
+        </div>
+      </div>
+      <div class="form-group col al">
+        <div class="form-group col">
+          <div class="col-sm-10">
+            <input type="submit" class="btn btn-success" value="Cargar" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</section>
