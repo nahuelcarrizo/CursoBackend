@@ -1,9 +1,13 @@
 
 <section class="mx-5 my-2 row overflow-hidden">
     <% if (prods) { %>
-      <h1 class="mt-5">Lista de productos</h1>
+      <div class="d-flex flex-column">
+        <h1 class="mt-5">Lista de productos</h1>
+        <p class="h6">Compra número: <%=prods[0].Carrito %></p>
+      </div>
     <div class="row mt-5 justify-content-around">
       <% prods.forEach(el => { %>
+        <% if(el.id){ %>
       <div class="col-3 card my-1 mx-1">  
         <img class="card-img-top" src=<%=el.url %></img>
         <div class="card-body">
@@ -11,6 +15,7 @@
           <p class="card-text">Precio: $ <%=el.price %></p>
         </div>
       </div>
+      <% } %>
       <% }) %>
     </div>
     <% } else { %>

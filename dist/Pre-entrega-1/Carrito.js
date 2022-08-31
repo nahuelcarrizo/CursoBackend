@@ -32,7 +32,10 @@ class Carrito {
         await fs.promises.writeFile(
           this.url,
           JSON.stringify(
-            [this.timeStamp, { ...objId, id: 1, timestamp: timeStampObj }],
+            [
+              { Carrito: this.timeStamp },
+              { ...objId, id: 1, timestamp: timeStampObj },
+            ],
             null,
             2
           )
@@ -89,7 +92,7 @@ class Carrito {
         fs.writeFile(this.url, JSON.stringify(dataParse), function (err) {
           if (err) throw err;
         });
-        res.status(200).json(`Item with id ${id} was deleted`);
+        /* res.status(200).json(`Item with id ${id} was deleted`); */
       }
     } catch (error) {
       console.log(error);
