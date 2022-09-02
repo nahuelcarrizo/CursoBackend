@@ -34,6 +34,8 @@ routerProductos.post("/listaproductos/", async (req, res) => {
   const timeStamp = Date.now();
   const carrito = new Carrito("./carrito.txt", timeStamp);
   carrito.save(req.body);
+  /*   res.render("products");
+   */
 });
 
 routerProductos.post("/", async (req, res) => {
@@ -68,15 +70,17 @@ routerCarrito.post("/", async (req, res) => {
   console.log("delete");
   try {
     const carrito = new Carrito("./carrito.txt");
-    await carrito.deletById(req, res)
-    res.render("cart", async () => {
-      const prods = await carrito.getAll().then(data=>
-      return { prods: data });
-    });
+    await carrito.deletById(req, res);
   } catch (error) {
     console.log(error);
+  } finally {
+    const carrito = new Carrito("./carrito.txt");
+    const prods = await carrito.getAll();
+    console.log(prods);
+    res.render("cart", { prods: prods });
   }
 });
+
 /* routerCarrito.delete("/", async (req, res) => {
   try {
     const carrito = new Carrito("./carrito.txt");
