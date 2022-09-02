@@ -68,10 +68,10 @@ routerCarrito.post("/", async (req, res) => {
   console.log("delete");
   try {
     const carrito = new Carrito("./carrito.txt");
-    await carrito.deletById(req, res);
+    await carrito.deletById(req, res)
     res.render("cart", async () => {
-      const prods = await carrito.getAll();
-      return { prods: prods };
+      const prods = await carrito.getAll().then(data=>
+      return { prods: data });
     });
   } catch (error) {
     console.log(error);
