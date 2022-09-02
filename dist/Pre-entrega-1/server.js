@@ -56,28 +56,28 @@ routerCarrito.get("/", async (req, res) => {
   }
 });
 
-routerCarrito.post("/", async (req, res) => {
+/* routerCarrito.post("/", async (req, res) => {
   try {
     res.status(200).render("/layouts/cart");
   } catch (error) {
     console.log(error);
   }
-});
+}); */
 
-routerCarrito.delete("/:id", async (req, res) => {
+routerCarrito.post("/", async (req, res) => {
+  console.log("delete");
   try {
     const carrito = new Carrito("./carrito.txt");
-    const producto = await carrito.deletById(req, res);
-    if (producto) {
+    await carrito.deletById(req, res);
+    res.render("cart", async () => {
       const prods = await carrito.getAll();
-      res.render("cart", { prods: prods });
-    }
+      return { prods: prods };
+    });
   } catch (error) {
     console.log(error);
   }
 });
-
-routerCarrito.delete("/", async (req, res) => {
+/* routerCarrito.delete("/", async (req, res) => {
   try {
     const carrito = new Carrito("./carrito.txt");
     const producto = await carrito.deleteAll();
@@ -88,7 +88,8 @@ routerCarrito.delete("/", async (req, res) => {
   } catch (error) {
     console.log(error);
   }
-});
+}); */
+
 app.listen(PORT, () => {
   console.log(`Server is running on port: ${PORT}`);
 });

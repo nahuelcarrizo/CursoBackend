@@ -75,7 +75,7 @@ class Carrito {
 
   async deletById(req, res) {
     try {
-      const id = Number(req.params.id);
+      const id = Number(req.body.id);
       const data = await fs.promises.readFile(
         this.url,
         "utf-8",
@@ -89,9 +89,14 @@ class Carrito {
         res.status(404).json({ error: "Producto no encontrado" });
       } else {
         dataParse.splice(dataParse.indexOf(product), 1);
-        fs.writeFile(this.url, JSON.stringify(dataParse), function (err) {
-          if (err) throw err;
-        });
+        console.log(dataParse[1]);
+        if (dataParse[1] !== undefined) {
+          fs.writeFile(this.url, JSON.stringify(dataParse), function (err) {
+            if (err) throw err;
+          });
+        } else {
+          this.deleteAll();
+        }
         /* res.status(200).json(`Item with id ${id} was deleted`); */
       }
     } catch (error) {

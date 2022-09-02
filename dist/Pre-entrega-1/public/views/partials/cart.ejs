@@ -9,11 +9,14 @@
       <% prods.forEach(el => { %>
         <% if(el.id){ %>
       <div class="col-3 card my-1 mx-1">  
-        <img class="card-img-top" src=<%=el.url %></img>
+        <img class="card-img-top" src="<%=el.url %>"></img>
         <div class="card-body">
           <h5 class="card-title"><%=el.title %></h5>
           <p class="card-text">Precio: $ <%=el.price %></p>
         </div>
+        <form action="http://localhost:8080/api/carrito/" method="post">
+          <button name="id" type="submit" value="<%=el.id%>">Eliminar item</button>
+        </form>
       </div>
       <% } %>
       <% }) %>

@@ -11,7 +11,7 @@
   {
     "title": "Televisión",
     "description": "TV color",
-    "url": "https://www.google.com/imgres?imgurl=https%3A%2F%2Fst.depositphotos.com%2F1005574%2F4001%2Fv%2F600%2Fdepositphotos_40012595-stock-illustration-tv-monitor.jpg&imgrefurl=https%3A%2F%2Fsp.depositphotos.com%2Fvector-images%2Ftelevisi%25C3%25B3n.html&tbnid=0qYt6_2gEVUSuM&vet=12ahUKEwjlwrmP1uz5AhUan3IEHeasAYMQMygDegUIARDiAQ..i&docid=hCttEjZC6Uk3MM&w=600&h=576&q=television&ved=2ahUKEwjlwrmP1uz5AhUan3IEHeasAYMQMygDegUIARDiAQ",
+    "url": "https://www.partesdel.com/wp-content/uploads/Pantalla.jpg",
     "price": "1000",
     "stock": "1",
     "id": 2,
