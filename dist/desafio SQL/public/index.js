@@ -16,14 +16,22 @@ const renderChat = (data) => {
       `
   );
   chat.innerHTML = html.join(" ");
+  document.getElementById("collapseExample").classList.add("show");
 };
 
-const addChat = (e) => {
+const addChat = (event) => {
+  document
+    .getElementById("formChat")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
+    });
   const mail = document.querySelector("#inputMail").value;
   const mensaje = document.querySelector("#inputMsj").value;
   const mensajeNuevo = { mail, mensaje };
   server.emit("mensaje-nuevo", mensajeNuevo);
+
   renderChat(data);
+
   return false;
 };
 
