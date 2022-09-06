@@ -51,6 +51,7 @@ routerProductos.post("/", async (req, res) => {
 });
 
 //////////////////CARRITO
+
 routerCarrito.get("/", async (req, res) => {
   try {
     const productos = new Producto(optionsMDB, "cart");
@@ -62,15 +63,26 @@ routerCarrito.get("/", async (req, res) => {
   }
 });
 
-/* routerCarrito.post("/", async (req, res) => {
-  try {
-    res.status(200).render("/layouts/cart");
-  } catch (error) {
-    console.log(error);
-  }
-}); */
+///////////////////CHAT
 
-routerCarrito.post("/", async (req, res) => {
+io.on("connection", async (socket) => {
+  const Chat = require("./Chat");
+  const chat = new Chat(optionsSQL3, "chat");
+
+  const mensajes = await chat.getAll();
+  io.sockets.emit("chat-servidor", mensajes);
+
+  socket.on("mensaje-nuevo", (mensaje) => {
+    chat.save(mensaje);
+    io.sockets.emit("chat-servidor", chat.getAll());
+  });
+});
+
+httpServer.listen(PORT, () => {
+  console.log(`Server is running on port: ${PORT}`);
+});
+
+/* routerCarrito.post("/", async (req, res) => {
   console.log("delete");
   try {
     const carrito = new Carrito("./carrito.txt");
@@ -83,37 +95,4 @@ routerCarrito.post("/", async (req, res) => {
     console.log(prods);
     res.render("cart", { prods: prods });
   }
-});
-
-/* routerCarrito.delete("/", async (req, res) => {
-  try {
-    const carrito = new Carrito("./carrito.txt");
-    const producto = await carrito.deleteAll();
-    if (producto) {
-      const prods = await carrito.getAll();
-      res.render("cart", { prods: prods });
-    }
-  } catch (error) {
-    console.log(error);
-  }
 }); */
-
-const products = [];
-const chat = [];
-
-io.on("connection", async (socket) => {
-  io.sockets.emit("mensaje-servidor", products);
-  io.sockets.emit("chat-servidor", chat);
-  socket.on("producto-nuevo", (product) => {
-    products.push(product);
-    io.sockets.emit("mensaje-servidor", products);
-  });
-  socket.on("mensaje-nuevo", (mensaje) => {
-    chat.push(mensaje);
-    io.sockets.emit("chat-servidor", chat);
-  });
-});
-
-httpServer.listen(PORT, () => {
-  console.log(`Server is running on port: ${PORT}`);
-});

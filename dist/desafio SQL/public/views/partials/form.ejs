@@ -1,21 +1,21 @@
-<section class="mx-1 my-5 row overflow-hidden justify-content-center">
-  <div class="col-4 m-0 p-0 pr-2 h-100">
+<section class="mx-1 my-1 row overflow-hidden justify-content-center">
+  <div class="col-6">
     <img src="../../manifiesto-2.jpg" class="img-fluid" />
   </div>
   <form
-    class="col-4 bg-secondary w-100"
+    class="col-auto bg-secondary"
     onsubmit="http://localhost:8080/api/productos/"
     method="post"
   >
     <div
-      class="d-flex flex-column align-items-center justify-content-center flex-grow-1 mx-3 mt-2"
+      class="d-flex flex-column align-items-start justify-content-center mx-3 mt-2"
     >
       <div class="form-group col mb-0 mt-2">
         <h2 class="ml-3 text-white">Ingrese el producto</h2>
-        <label for="inputNombre" class="col-sm-2 col-form-label text-white"
+        <label for="inputNombre" class="col-form-label text-white"
           >Nombre</label
         >
-        <div class="col-sm-10">
+        <div>
           <input
             type="text"
             class="form-control"
@@ -25,10 +25,10 @@
         </div>
       </div>
       <div class="form-group col mb-0">
-        <label for="inputNombre" class="col-sm-2 col-form-label text-white"
+        <label for="inputNombre" class="col-form-label text-white"
           >Descripción</label
         >
-        <div class="col-sm-10">
+        <div>
           <input
             type="text"
             class="form-control"
@@ -38,18 +38,16 @@
         </div>
       </div>
       <div class="form-group col mb-0">
-        <label for="inputUrl" class="col-sm-3 col-form-label text-white"
-          >Foto URL</label
-        >
-        <div class="col-sm-10">
+        <label for="inputUrl" class="col-form-label text-white">Foto URL</label>
+        <div>
           <input type="text" class="form-control" id="inputUrl" name="url" />
         </div>
       </div>
       <div class="form-group col mb-0">
-        <label for="inputPrecio" class="col-sm-2 col-form-label text-white"
+        <label for="inputPrecio" class="col-form-label text-white"
           >Precio</label
         >
-        <div class="col-sm-10">
+        <div>
           <input
             type="number"
             class="form-control"
@@ -59,10 +57,8 @@
         </div>
       </div>
       <div class="form-group col mb-2">
-        <label for="inputStock" class="col-sm-2 col-form-label text-white"
-          >Stock</label
-        >
-        <div class="col-sm-10">
+        <label for="inputStock" class="col-form-label text-white">Stock</label>
+        <div>
           <input
             type="number"
             class="form-control"
@@ -73,7 +69,7 @@
       </div>
       <div class="form-group col al">
         <div class="form-group col">
-          <div class="col-sm-10">
+          <div>
             <input type="submit" class="btn btn-success" value="Cargar" />
           </div>
         </div>

@@ -1,0 +1,24 @@
+section {
+  height: 500px;
+}
+
+.chatContainer {
+  bottom: 40px;
+  left: 80vw;
+  width: 250px;
+  background-color: white;
+}
+
+section {
+  max-height: 800px;
+}
+
+.chatMsj {
+  overflow-y: scroll;
+  max-height: 200px;
+}
+
+.containerAll {
+  height: 90vh;
+  overflow: hidden;
+}

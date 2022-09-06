@@ -1,11 +1,28 @@
-<div class="border h-100 pb-3">
-  <form onsubmit="return addChat(this)" class="d-flex flex-column p-4">
-    <h3>Mensajes</h3>
-    <label for="inputMail" class="pt-3 m-0">Mail:</label>
-    <input type="text" id="inputMail" />
-    <label for="inputMsj" class="pt-2 m-0">Mensaje:</label>
-    <input type="text" id="inputMsj" />
-    <input type="submit" value="enviar" class="mt-3" />
-  </form>
-  <div class="border mt-1 mx-4"><ul id="chat" class="list-group"></ul></div>
+<div class="position-relative">
+  <div class="position-relative">
+    <div class="border h-100 pb-3 collapse" id="collapseExample">
+      <h3>Chat</h3>
+      <div class="chatMsj border mt-1 mx-1">
+        <ul id="chat" class="list-group"></ul>
+      </div>
+      <form onsubmit="return addChat(this)" class="d-flex flex-column p-2">
+        <label for="inputMail" class="pt-3 m-0">Mail:</label>
+        <input type="text" id="inputMail" class="border-0 bg-light" />
+        <label for="inputMsj" class="pt-2 m-0">Mensaje:</label>
+        <input type="text" id="inputMsj" class="border-0 bg-light" />
+        <input type="submit" value="enviar" class="mt-3" />
+      </form>
+    </div>
+  </div>
+  <button
+    class="bg-white border-0 btn-light w-100"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#collapseExample"
+    aria-expanded="false"
+    aria-controls="collapseExample"
+  >
+    Chatea con nosotros
+  </button>
+  </div>
 </div>
