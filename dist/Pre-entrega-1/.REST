@@ -1,4 +1,4 @@
-DELETE  http://localhost:8080/api/carrito HTTP/1.1
+DELETE  http://localhost:8080/api/productos/2 HTTP/1.1
 
 
 

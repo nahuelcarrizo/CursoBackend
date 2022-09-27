@@ -6,8 +6,7 @@ const routerProductos = Router();
 const routerCarrito = Router();
 const Producto = require("./Producto");
 const productos = new Producto("./productos.txt");
-const Carrito = require("./Carrito");
-const e = require("express");
+/* const Carrito = require("./Carrito"); */
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -66,18 +65,19 @@ routerCarrito.get("/", async (req, res) => {
   }
 }); */
 
-routerCarrito.post("/", async (req, res) => {
+routerProductos.delete("/", async (req, res) => {
   console.log("delete");
   try {
-    const carrito = new Carrito("./carrito.txt");
-    await carrito.deletById(req, res);
+    const productos = new Producto("./productos.txt");
+    await productos.deletById(req, res);
   } catch (error) {
     console.log(error);
-  } finally {
+    /*   } finally {
     const carrito = new Carrito("./carrito.txt");
     const prods = await carrito.getAll();
     console.log(prods);
     res.render("cart", { prods: prods });
+  } */
   }
 });
 
