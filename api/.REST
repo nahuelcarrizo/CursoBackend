@@ -1,0 +1,7 @@
+POST http://localhost:3080/api/productos HTTP/1.1
+content-type: application/json
+
+{
+    "name":"1"
+}
+

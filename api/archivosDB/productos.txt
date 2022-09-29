@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Escuadra",
+    "price": 150,
+    "id": 1,
+    "stock": 1,
+    "description": "Escuadra.",
+    "img": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Squadra_45.jpg"
+  },
+  {
+    "name": "Calculadora",
+    "price": 200,
+    "id": 2,
+    "stock": 1,
+    "description": "Calculadora.",
+    "img": "https://http2.mlstatic.com/D_NQ_NP_922410-MLA43556276077_092020-W.webp"
+  },
+  {
+    "name": "Globo Terraqueo",
+    "price": 350,
+    "id": 3,
+    "stock": 1,
+    "description": "Globo Terraqueo.",
+    "img": "https://cdn.shopify.com/s/files/1/1086/1234/products/257W_opt_1024x1024.jpg?v=1579740224"
+  },
+  {
+    "name": "Lionel Messi",
+    "description": "El mejor jugador de la historia",
+    "img": "https://img.a.transfermarkt.technology/portrait/header/28003-1631171950.jpg?lm=1",
+    "price": "99999999999999999999",
+    "stock": "0",
+    "id": 4
+  }
+]

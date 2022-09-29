@@ -1,47 +1,22 @@
-const express = require('express');
-const path = require('path');
+const express = require("express");
+const dotenv = require("dotenv");
+const path = require("path");
 const app = express(),
-      bodyParser = require("body-parser");
-      port = 80;
+  bodyParser = require("body-parser");
+const port = process.env.PORT || 3080;
 
-// place holder for the data
-const users = [
-  {
-    firstName: "first1",
-    lastName: "last1",
-    email: "abc@gmail.com"
-  },
-  {
-    firstName: "first2",
-    lastName: "last2",
-    email: "abc@gmail.com"
-  },
-  {
-    firstName: "first3",
-    lastName: "last3",
-    email: "abc@gmail.com"
-  }
-];
+const routerProductos = require("./routes/productos.routes");
+const routerCarrito = require("./routes/carrito.routes");
 
+dotenv.config();
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, '../my-app/build')));
+app.use(express.static(path.join(__dirname, "../my-app/build")));
 
-app.get('/api/users', (req, res) => {
-  console.log('api/users called!')
-  res.json(users);
-});
+const users = [{}];
 
-app.post('/api/user', (req, res) => {
-  const user = req.body.user;
-  console.log('Adding user:::::', user);
-  users.push(user);
-  res.json("user addedd");
-});
-
-app.get('/', (req,res) => {
-  res.sendFile(path.join(__dirname, '../my-app/build/index.html'));
-});
+app.use("/api/carrito", routerCarrito);
+app.use("/api/productos", routerProductos);
 
 app.listen(port, () => {
-    console.log(`Server listening on the port::${port}`);
+  console.log(`Server listening on the port::${port}`);
 });

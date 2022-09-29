@@ -1,0 +1,35 @@
+[
+  {
+    "idCarrito": 0.2438824155852808
+  },
+  {
+    "name": "Escuadra",
+    "price": 150,
+    "id": null,
+    "stock": 1,
+    "description": "Escuadra.",
+    "img": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Squadra_45.jpg",
+    "quantity": 1,
+    "timestamp": 1664232713533
+  },
+  {
+    "name": "Lionel Messi",
+    "description": "El mejor jugador de la historia",
+    "img": "https://img.a.transfermarkt.technology/portrait/header/28003-1631171950.jpg?lm=1",
+    "price": "99999999999999999999",
+    "stock": "0",
+    "id": 1,
+    "quantity": 1,
+    "timestamp": 1664232721197
+  },
+  {
+    "name": "Escuadra",
+    "price": 150,
+    "id": 2,
+    "stock": 1,
+    "description": "Escuadra.",
+    "img": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Squadra_45.jpg",
+    "quantity": 1,
+    "timestamp": 1664235106628
+  }
+]

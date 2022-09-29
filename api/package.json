@@ -1,26 +1,26 @@
 {
-  "name": "react-nodejs-example",
+  "name": "soysustrato",
   "version": "1.0.0",
-  "description": "example project react with nodejs",
+  "description": "project react with nodejs",
   "main": "server.js",
   "scripts": {
     "start": "node server.bundle.js",
     "build": "webpack",
-    "dev": "nodemon ./server.js localhost 3080"
+    "dev": "nodemon ./server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bbachi/react-nodejs-example.git"
+    "url": "git+https://github.com/nahuelcarrizo/CursoBackend.git"
   },
-  "author": "Bhargav Bachina",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/bbachi/react-nodejs-example/issues"
-  },
-  "homepage": "https://github.com/bbachi/react-nodejs-example#readme",
   "dependencies": {
+    "dotenv": "^16.0.2",
     "express": "^4.17.1",
-    "http-proxy-middleware": "^1.0.4"
+    "http-proxy-middleware": "^1.0.4",
+    "knex": "^2.3.0",
+    "mongodb": "^4.10.0",
+    "mongoose": "^6.6.2",
+    "sqlite3": "^5.1.1"
   },
   "devDependencies": {
     "del": "^5.1.0",
