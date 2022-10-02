@@ -1,0 +1,14 @@
+[
+  {
+    "allMessages": {
+      "mail": "asdasd",
+      "message": "asdasasd"
+    }
+  },
+  {
+    "mail": "asdasd",
+    "message": "asdasasd"
+  },
+  {},
+  {}
+]
