@@ -1,1 +1,1 @@
-GET http://localhost:3080/api/products-test HTTP/1.1
+GET http://localhost:3080/api/chat HTTP/1.1

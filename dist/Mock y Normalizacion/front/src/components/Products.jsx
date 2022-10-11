@@ -28,7 +28,7 @@ const Products = () => {
   };
   const prodTable = prods.map((prod, index) => ProdRow(prod, index));
   return (
-    <div className="container">
+    <div className="container mt-2">
       <h2>Products</h2>
       <table className="table table-bordered">
         <thead>

@@ -15,21 +15,32 @@ class Chat {
     }
   }
 
-  async save(allMessages) {
+  async save(message) {
     try {
-      let data = await this.#readFileFunction();
-      if (data.length) {
+      let allMessages = await this.#readFileFunction();
+      if (allMessages.length) {
         await fs.promises.writeFile(
           this.url,
-          JSON.stringify([...data, allMessages], null, 2)
+          JSON.stringify([...allMessages, message], null, 2)
         );
       } else {
         await fs.promises.writeFile(
           this.url,
-          JSON.stringify([{ allMessages }], null, 2)
+          JSON.stringify([{ message }], null, 2)
         );
       }
-      return data;
+      return allMessages;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async getAllMessages() {
+    try {
+      const allMessages = await this.#readFileFunction();
+      if (allMessages.length) {
+        return allMessages;
+      }
     } catch (error) {
       console.log(error);
     }

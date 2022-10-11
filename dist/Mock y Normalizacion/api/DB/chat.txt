@@ -1,14 +1,24 @@
 [
   {
-    "allMessages": {
-      "mail": "asdasd",
-      "message": "asdasasd"
+    "id": 7,
+    "text": "ascas",
+    "user": {
+      "mail": "nahuel@mail.com",
+      "firstname": null,
+      "lastname": null,
+      "age": "12asdasd",
+      "alias": "nahuel"
     }
   },
   {
-    "mail": "asdasd",
-    "message": "asdasasd"
-  },
-  {},
-  {}
+    "id": 8,
+    "text": "erfe",
+    "user": {
+      "mail": "nahuel@mail.com",
+      "firstname": null,
+      "lastname": null,
+      "age": "12asdasd",
+      "alias": "nahuel"
+    }
+  }
 ]

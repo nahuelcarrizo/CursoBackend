@@ -23,12 +23,6 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-.chatContainer {
-  bottom: 10px;
-  left: 77vw;
-  width: 250px;
-  background-color: white;
-}
 
 .App-link {
   color: #61dafb;
